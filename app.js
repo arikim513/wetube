@@ -13,6 +13,7 @@ import routes from './routes';
 
 const app = express();
 
+app.set('view engine', 'pug'); // app settings
 ////미들웨어
 app.use(cookieParcer()); //cookie
 //form을 다룸.
