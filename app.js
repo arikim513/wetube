@@ -13,8 +13,10 @@ import routes from './routes';
 
 const app = express();
 
-app.set('view engine', 'pug'); // app settings
 ////미들웨어
+//// 미들웨들은 순서대로 읽히고 적용되므로 순서가 매우매우 중요!!
+app.use(helmet()); //helmet은 보안
+app.set('view engine', 'pug'); // app settings
 app.use(cookieParcer()); //cookie
 //form을 다룸.
 //우리 서버에게 유저가 보낼 데이터 종류를 알려줌.
@@ -23,9 +25,7 @@ app.use(cookieParcer()); //cookie
 //json이라면 .json 등등
 app.use(bodyParcer.urlencoded({ extended: true }));
 app.use(bodyParcer.json());
-app.use(helmet()); //helmet은 보안
 app.use(morgan('dev')); //morgan은 로깅 미들웨어
-////미들웨어
 
 ////라우터
 //반드시 .use로 해야 라우터를 인식함!(라우터 통채로 인식해야 해서..)
@@ -33,5 +33,6 @@ app.use(routes.home, globalRouter);
 app.use(routes.users, userRouter);
 app.use(routes.videos, videoRouter);
 ////라우터
+////미들웨어
 
 export default app;
