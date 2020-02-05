@@ -1,12 +1,13 @@
 import express from 'express';
 import routes from '../routes';
+import { changePassword, editProfile, userDetail, users } from '../controllers/userController';
 
 const userRouter = express.Router();
 
-userRouter.get(routes.users, (req, res) => res.send('users'));
-userRouter.get(routes.userDetail, (req, res) => res.send('user detail'));
-userRouter.get(routes.editProfile, (req, res) => res.send('edit profile'));
-userRouter.get(routes.changePassword, (req, res) => res.send('change password'));
+userRouter.get(routes.users, users);
+userRouter.get(routes.userDetail, userDetail);
+userRouter.get(routes.editProfile, editProfile);
+userRouter.get(routes.changePassword, changePassword);
 
 //default는 파일!!!통채로 export하겠다는 의미.
 //default있으면 import쪽에서 {}없이 그래로 변수명 사용.
