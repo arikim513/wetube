@@ -4,10 +4,10 @@ import morgan from 'morgan'; //logger
 import helmet from 'helmet'; //보안
 import cookieParcer from 'cookie-parser';
 import bodyParcer from 'body-parser';
+import { userRouter } from './router';
 //옛날 문법
 // const express = require('express');
 const app = express();
-const port = 3000;
 
 //호이스팅주의!
 const handleProfile = (req, res) => {
@@ -28,6 +28,10 @@ app.use(helmet());
 //morgan은 로깅 미들웨어
 app.use(morgan('dev'));
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`));
 app.get('/', (req, res) => res.send('Hello World!'));
 app.get('/profile', handleProfile);
+
+//반드시 .use로 해야 라우터를 인식함!(라우터 통채로 인식해야 해서..)
+app.use('/user', userRouter);
+
+export default app;
