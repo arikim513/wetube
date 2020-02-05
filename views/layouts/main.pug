@@ -1,11 +1,14 @@
 doctype html
 html
     head
+        //-  아래처럼 html도 방식도 알아 들음. 퍼그방식으로 써도 당연히 OK
+        //- <script src="https://kit.fontawesome.com/38cfe0cbdd.js" crossorigin="anonymous"></script>
+        script(src="https://kit.fontawesome.com/38cfe0cbdd.js",crossorigin="anonymous")
         title Wetube
     body
         header
             h1 Wetube
         main
             block content
-        footer
-            span &copy; Wetube
+        //- footer
+        include ../partials/footer
