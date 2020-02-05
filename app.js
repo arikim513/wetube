@@ -10,6 +10,7 @@ import userRouter from './routers/userRouter';
 import videoRouter from './routers/videoRouter';
 import globalRouter from './routers/globalRouter';
 import routes from './routes';
+import { localsMiddleware } from './middlewares';
 
 const app = express();
 
@@ -26,6 +27,8 @@ app.use(cookieParcer()); //cookie
 app.use(bodyParcer.urlencoded({ extended: true }));
 app.use(bodyParcer.json());
 app.use(morgan('dev')); //morgan은 로깅 미들웨어
+
+app.use(localsMiddleware);
 
 ////라우터
 //반드시 .use로 해야 라우터를 인식함!(라우터 통채로 인식해야 해서..)

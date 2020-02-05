@@ -1,9 +1,12 @@
 header.header
     .header__column
-        i.fab.fa-youtube
+        a(href=routes.home)
+            i.fab.fa-youtube
     .header__column
         ul
             li
-                a(href="#") Join
+                a(href=routes.join) Join
+                //- #{} 는 텍스트 사이에 변수를 넣을 때.
+                //- a(href=routes.join) 오직 = 뒤에 변수를 넣을 떄만 쓸 수 있음
             li
-                a(href="#") Log in
+                a(href=routes.login) Log in
