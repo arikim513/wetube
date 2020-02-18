@@ -5,9 +5,9 @@ import { changePassword, editProfile, userDetail, users } from '../controllers/u
 const userRouter = express.Router();
 
 userRouter.get(routes.users, users);
-userRouter.get(routes.userDetail, userDetail);
 userRouter.get(routes.editProfile, editProfile);
 userRouter.get(routes.changePassword, changePassword);
+userRouter.get(routes.userDetail, userDetail); //루팅이 :id부분에 걸려 userDetail로 보내므로 순서 상 뒤로 뺌
 
 //default는 파일!!!통채로 export하겠다는 의미.
 //default있으면 import쪽에서 {}없이 그래로 변수명 사용.
