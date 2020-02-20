@@ -5,6 +5,7 @@ import express from 'express';
 import morgan from 'morgan'; //logger
 import helmet from 'helmet'; //보안
 import cookieParcer from 'cookie-parser'; //사용자 인증같은 곳에서 쿠키검사
+//bodyParcer덕분에 포스트의 경우에도 req.body를 콘솔에서 볼 수 있다.
 import bodyParcer from 'body-parser'; //사용자가 웹사이트로 전달하는 정보들을 검사. request정보에서 form이나 json 형태로 된 body를 검사
 import userRouter from './routers/userRouter';
 import videoRouter from './routers/videoRouter';
