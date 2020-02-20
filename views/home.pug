@@ -1,7 +1,11 @@
 extends layouts/main
+include mixins/videoBlock
 
 block content
     .videos
         each video in fakeVideos
-            h1= video.title
-            p= video.description
+            +videoBlock({
+                videoFile: video.videoFile,
+                title: video.title,
+                views: video.views
+            })
