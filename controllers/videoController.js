@@ -1,5 +1,9 @@
+import { fakeVideos } from '../fakeDB';
+
 //렌더함수 인자 중 첫번째는 템플릿이고, 두번째는 템플릿에 추가할 정보가 담긴 객체.
-export const home = (req, res) => res.render('home', { pageTitle: 'Home' });
+export const home = (req, res) => {
+  res.render('home', { pageTitle: 'Home', fakeVideos });
+};
 export const search = (req, res) => {
   const {
     query: { term: searchingBy },
