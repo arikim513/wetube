@@ -1,4 +1,4 @@
-export const fakeVideos = [
+export const videoItems = [
   {
     id: 324393,
     title: 'Video awesome',
